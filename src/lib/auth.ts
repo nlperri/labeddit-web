@@ -3,6 +3,7 @@ import decode from 'jwt-decode'
 interface User {
     name: string
     email: string
+    id: string
 }
 
 export function getUser():User{
