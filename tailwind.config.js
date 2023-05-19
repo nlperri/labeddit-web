@@ -13,15 +13,20 @@ module.exports = {
         },
         orange: {
           500: '#F9B24E',
-          600: '#FE7E02'
+          600: '#FE7E02',
         },
+        grayBg: {
+          100: '#EDEDED',
+        },
+        blue: {
+          400: '#4088CB',
+        },
+      },
       fontFamily: {
         sans: 'var(--font-plexSans)',
-        alt: 'var(--font-notoSans)'
+        alt: 'var(--font-notoSans)',
       },
-      
     },
+    plugins: [],
   },
-  plugins: [],
-}
 }
