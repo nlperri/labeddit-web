@@ -9,7 +9,7 @@ export function Header() {
     const pathname = usePathname()
 
     return (
-        <header className={`${pathname === '/' && 'hidden'}`}>
+        <header className={`${pathname === '/login' && 'hidden'}`}>
             <div className="w-full h-12 bg-grayBg-100 grid grid-cols-2 items-center justify-center">
                 <Image
                     className="justify-self-end"

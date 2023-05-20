@@ -16,7 +16,10 @@ module.exports = {
           600: '#FE7E02',
         },
         grayBg: {
+          300: '#6F6F6F',
+          200: '#E0E0E0',
           100: '#EDEDED',
+          50: '#FBFBFB',
         },
         blue: {
           400: '#4088CB',
