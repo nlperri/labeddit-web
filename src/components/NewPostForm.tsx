@@ -4,10 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { useRouter } from 'next/navigation'
+import { useToast } from '@/hooks/useToast'
 
 
 export function NewPostForm() {
     const router = useRouter()
+    const { emmitSuccessToast, Toast } = useToast()
+
+
 
 
     const { newPost } = useNewPost()
@@ -25,7 +29,7 @@ export function NewPostForm() {
     async function handleNewPost(data: newPostInput) {
         try {
             await newPost(data)
-
+            emmitSuccessToast('Seu post foi criado', 1000)
             router.refresh()
             reset()
         } catch (error) {
@@ -49,6 +53,7 @@ export function NewPostForm() {
                 >
                     Postar
                 </button>
+                <Toast />
             </form>
 
         </>

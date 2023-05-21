@@ -1,5 +1,6 @@
 'use client'
 import { useRegister } from "@/hooks/useRegister"
+import { useToast } from "@/hooks/useToast"
 import setCookies from "@/service/set-cookie.service"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
@@ -7,6 +8,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 export function RegisterForm() {
+    const { emmitErrorToast, Toast } = useToast()
     const router = useRouter()
     const { registerUser } = useRegister()
 
@@ -31,7 +33,7 @@ export function RegisterForm() {
             router.push('/home')
 
         } catch (err) {
-            console.log(err)
+            emmitErrorToast('Campos inválidos', 1000)
             reset()
         }
     }
@@ -82,6 +84,7 @@ export function RegisterForm() {
             >
                 Cadastrar
             </button>
+            <Toast />
         </form>
     )
 }

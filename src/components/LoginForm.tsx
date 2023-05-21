@@ -8,9 +8,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from "next/navigation"
 import { useLogin } from "@/hooks/useLogin"
 import setCookies from "@/service/set-cookie.service"
+import { useToast } from "@/hooks/useToast"
 
 
 export function LoginForm() {
+    const { emmitErrorToast, Toast } = useToast()
     const router = useRouter()
     const { login } = useLogin()
 
@@ -23,7 +25,7 @@ export function LoginForm() {
 
     type loginFormInputs = z.infer<typeof loginFormSchema>
 
-    const { register, handleSubmit, formState: { isSubmitting, errors }, reset } = useForm<loginFormInputs>({
+    const { register, handleSubmit, formState: { isSubmitting, }, reset } = useForm<loginFormInputs>({
         resolver: zodResolver(loginFormSchema),
     })
 
@@ -33,11 +35,12 @@ export function LoginForm() {
         try {
             const token = await login(data)
             setCookies(token)
+
             router.push('/home')
 
         } catch (err) {
-
             reset()
+            emmitErrorToast('Email ou senha incorretos', 1000)
         }
     }
 
@@ -64,6 +67,7 @@ export function LoginForm() {
                     placeholder='E-mail'
                     required
                     {...register('email')}
+
                 />
                 <input
                     className="input"
@@ -95,6 +99,7 @@ export function LoginForm() {
                 </button>
             </div>
 
+            <Toast />
         </>
     )
 }

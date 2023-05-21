@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from 'next/navigation'
+import { useToast } from "@/hooks/useToast"
 
 interface NewCommentFormProps {
     postId: string
@@ -11,6 +12,7 @@ interface NewCommentFormProps {
 
 export function NewCommentForm({ postId }: NewCommentFormProps) {
     const { newComment } = useNewComment()
+    const { emmitSuccessToast, Toast } = useToast()
     const router = useRouter()
 
     const newCommentSchema = z.object({
@@ -26,6 +28,7 @@ export function NewCommentForm({ postId }: NewCommentFormProps) {
     async function handleNewComment({ content }: newCommentInput) {
         try {
             await newComment({ content, postId })
+            emmitSuccessToast('Seu comentário foi adicionado', 1000)
             router.refresh()
             reset()
         } catch (error) {
@@ -50,6 +53,7 @@ export function NewCommentForm({ postId }: NewCommentFormProps) {
                 >
                     Responder
                 </button>
+                <Toast />
             </form>
         </>
     )
