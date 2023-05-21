@@ -1,56 +1,56 @@
 'use client'
-import { useNewPost } from '@/hooks/useNewPost'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import z from 'zod'
+import { useNewComment } from "@/hooks/useNewComment"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 import { useRouter } from 'next/navigation'
 
+interface NewCommentFormProps {
+    postId: string
+}
 
-export function NewPostForm() {
+export function NewCommentForm({ postId }: NewCommentFormProps) {
+    const { newComment } = useNewComment()
     const router = useRouter()
 
-
-    const { newPost } = useNewPost()
-
-    const newPostSchema = z.object({
+    const newCommentSchema = z.object({
         content: z.string()
     })
 
-    type newPostInput = z.infer<typeof newPostSchema>
+    type newCommentInput = z.infer<typeof newCommentSchema>
 
-    const { register, handleSubmit, formState: { isSubmitting }, reset } = useForm<newPostInput>({
-        resolver: zodResolver(newPostSchema),
+    const { register, handleSubmit, formState: { isSubmitting }, reset } = useForm<newCommentInput>({
+        resolver: zodResolver(newCommentSchema),
     })
 
-    async function handleNewPost(data: newPostInput) {
+    async function handleNewComment({ content }: newCommentInput) {
         try {
-            await newPost(data)
-
+            await newComment({ content, postId })
             router.refresh()
             reset()
         } catch (error) {
             console.log(error)
         }
     }
+
     return (
         <>
             <form
-                onSubmit={handleSubmit(handleNewPost)}
+                onSubmit={handleSubmit(handleNewComment)}
                 className="px-6 w-full flex flex-col items-center justify-center">
                 <textarea
                     required
                     {...register('content')}
-                    placeholder="Escreva seu post..."
+                    placeholder="Adicionar comentário"
                     className="focus:outline-none p-3 bg-grayBg-100 resize-none w-full rounded max-w-md h-32 placeholder:text-sm focus:ring-0"
                 ></textarea>
                 <button
                     className="mt-2 w-full max-w-md h-12 rounded-md bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold hover:bg-gradient-to-r hover:from-orange-500 hover:to-pink-500 active:bg-pink-500"
                     type='submit'
                 >
-                    Postar
+                    Responder
                 </button>
             </form>
-
         </>
     )
 }

@@ -4,6 +4,9 @@ import {
   IBM_Plex_Sans as IBMPlexSans,
   Noto_Sans as NotoSans
 } from 'next/font/google'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 
 
@@ -28,6 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plexSans.variable} ${notoSans.variable} font-sans text-black min-h-screen`} >
         <main className="">
+          <ToastContainer />
           <Header />
           {children}
         </main>

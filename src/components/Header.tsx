@@ -14,7 +14,7 @@ export function Header() {
                 <Image
                     className="justify-self-end"
                     src={logo} alt="LabEddit logo" width={28} height={28} />
-                {pathname === '/home' ? <Link
+                {pathname === '/home' || pathname.includes('/post') ? <Link
                     className="mr-4 justify-self-end text-sm text-blue-400 font-semibold cursor-pointer hover:text-sky-800"
                     href="/api/auth/logout">
                     Logout

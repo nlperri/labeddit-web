@@ -1,4 +1,4 @@
-export type GetPostOutput = {
+export type Post = {
   id: string
   content: string
   likes: number

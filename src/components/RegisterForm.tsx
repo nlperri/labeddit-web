@@ -9,6 +9,7 @@ import { z } from "zod"
 export function RegisterForm() {
     const router = useRouter()
     const { registerUser } = useRegister()
+
     const registerFormSchema = z.object({
         name: z.string(),
         email: z.string().email(),
@@ -30,6 +31,7 @@ export function RegisterForm() {
             router.push('/home')
 
         } catch (err) {
+            console.log(err)
             reset()
         }
     }
@@ -38,6 +40,7 @@ export function RegisterForm() {
         <form
             onSubmit={handleSubmit(handleRegister)}
             className=" mt-28 flex flex-col gap-2 items-center justify-center">
+
             <input
                 className="input"
                 placeholder="Apelido"
@@ -52,10 +55,14 @@ export function RegisterForm() {
                 type="email" />
             <input
                 className="input"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+                title="Senha precisa conter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula, um número e um símbolo (!@#$%^&*_=+-)"
                 placeholder="Senha"
                 required
                 {...register('password')}
                 type="password" />
+
+
 
 
             <p className="w-full max-w-sm mt-12 text-xs font-alt font-semibold">Ao continuar, você concorda com o nosso <a className="text-blue-400 cursor-pointer hover:text-sky-800">Contrato de usuário</a> e nossa <a className="text-blue-400 cursor-pointer hover:text-sky-800">Política de Privacidade</a></p>

@@ -1,4 +1,3 @@
-import { GetPostOutput } from "@/@types/get-post-type";
 import { NewPostForm } from "@/components/NewPostForm";
 import { Posts } from "@/components/Posts";
 import { useFetchPosts } from "@/hooks/useFetchPosts";
@@ -20,9 +19,6 @@ export default async function HomePage() {
         }
 
     }))
-
-
-
 
     return (
         <main className="my-7 mt-8">
