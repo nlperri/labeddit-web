@@ -57,8 +57,9 @@ https://documenter.getpostman.com/view/25826606/2s93m344F2
 
 <table>
 <tr>
-<td>Next.js</td>
+
 <td>React</td>
+  <td>Next.js</td>
 <td>Typescript</td>
 <td>Node</td>
 <td>Axios</td>
@@ -67,8 +68,9 @@ https://documenter.getpostman.com/view/25826606/2s93m344F2
 
 </tr>
 <tr>
-<td>13.4.3</td>
+
 <td>18.2.6</td>
+  <td>13.4.3</td>
 <td>5.0.4</td>
 <td>20.2.1</td>
 <td>1.4.0</td>
