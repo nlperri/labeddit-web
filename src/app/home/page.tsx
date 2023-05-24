@@ -5,7 +5,7 @@ import { useGetPostsWithComments } from "@/hooks/usePostsWithComments";
 
 export default async function HomePage() {
 
-    const { posts, fetchNextPage } = await useGetPostsWithComments()
+    const { posts } = await useGetPostsWithComments()
 
     return (
         <main className="my-7 mt-8">

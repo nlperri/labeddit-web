@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  env: {
+    baseUrl: 'https://labeddit-r48n.onrender.com/',
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

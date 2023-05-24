@@ -2,9 +2,11 @@
 import Image from "next/image"
 import logo from './icon.png'
 import { useRouter } from 'next/navigation'
+import getCookies from "@/service/get-cookie.service"
 
 export default function Home() {
   const router = useRouter()
+
 
   return (
     <main className="px-3 flex flex-1 flex-col items-center justify-center">
