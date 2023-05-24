@@ -8,7 +8,7 @@ Aplicação React desenvolvida com Next.js integrada a Back-end com Node.js com 
 
 ### Deploy:
 
-...
+https://labeddit-delta.vercel.app/
 
 ### Repositório Back-end:
 
