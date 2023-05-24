@@ -4,6 +4,8 @@ import ArrowUp from '../assets/arrow-up.svg'
 import ArrowDown from '../assets/arrow-down.svg'
 import { useLikeDislike } from "@/hooks/useLikeDislike"
 import { useRouter } from "next/navigation"
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 
 interface CommentCardProps {
@@ -36,7 +38,7 @@ export function CommentCard({ comment }: CommentCardProps) {
             <p className="">
                 {comment.content}
             </p>
-            <div className="flex gap-2">
+            <div className="flex justify-between">
                 <div className="p-2 flex items-center justify-around w-24 rounded-full border h-7">
 
                     <ArrowUp
@@ -53,6 +55,12 @@ export function CommentCard({ comment }: CommentCardProps) {
                         }
                     />
                 </div>
+                <time className="-ml-8 flex items-center gap-2 text-grayBg-300 text-xs ">
+                    {formatDistanceToNow(new Date(comment.createdAt), {
+                        addSuffix: true,
+                        locale: ptBR,
+                    })}
+                </time>
 
             </div>
 
