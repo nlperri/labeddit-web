@@ -11,7 +11,7 @@ export function Header() {
 
     return (
         <header className={`${pathname === '/login' && 'hidden'}`}>
-            <div className="w-full h-12 bg-grayBg-100 grid grid-cols-2 items-center justify-center">
+            <div className="pl-6 w-full h-12 bg-grayBg-100 grid grid-cols-2 items-center justify-center">
                 <Image
                     onClick={() => router.push('/')}
                     className="justify-self-end cursor-pointer"
