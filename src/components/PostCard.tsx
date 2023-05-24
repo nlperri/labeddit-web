@@ -6,14 +6,12 @@ import ArrowUp from '../assets/arrow-up.svg'
 import ArrowDown from '../assets/arrow-down.svg'
 import CommentsImg from '../assets/comments.svg'
 import React from "react"
-import { useToast } from "@/hooks/useToast"
 
 interface PostCardProps {
     post: Post
 }
 
 export function PostCard({ post }: PostCardProps) {
-
     const router = useRouter()
     const { likeOrDislike } = useLikeDislike()
 
