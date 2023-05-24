@@ -5,7 +5,7 @@ import {
   Noto_Sans as NotoSans
 } from 'next/font/google'
 
-const plexSans = IBMPlexSans({ subsets: ['latin'], variable: '--font-plexSans', weight: ['300', '700'] })
+const plexSans = IBMPlexSans({ subsets: ['latin'], variable: '--font-plexSans', weight: ['300', '400', '500', '600', '700'] })
 
 const notoSans = NotoSans({ subsets: ['latin'], weight: '300', variable: '--font-notoSans' })
 

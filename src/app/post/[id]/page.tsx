@@ -24,7 +24,12 @@ export default async function Post({ params }: PostProps) {
             <NewCommentForm postId={postId} />
             <div className=" h-[1px] mt-2 w-full max-w-md bg-gradient-to-r from-pink-500 to-orange-500">
             </div>
-            {post.comments.length > 0 && post.comments.map(comment => {
+            {post.comments.length > 0 && 
+            post.comments
+            .sort((a,b)=>{
+                return (b.likes - b.dislikes) - (a.likes - a.dislikes)
+            })
+            .map(comment => {
                 return (
                     <div
                         className="w-full flex flex-col items-center justify-center"

@@ -16,19 +16,21 @@ export default function Home() {
         <h1 className="font-bold text-3xl text-gray-800">LabEddit</h1>
         <p className="text-sm">O projeto de rede social da Labenu</p>
       </div>
+
       <button
-        className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold"
+        className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold transition hover:from-orange-500 hover:to-pink-500"
         onClick={() => router.push('/login')}
       >
 
         Entrar
 
       </button>
+
       <div className=" h-[1px] mt-4 w-full max-w-sm bg-gradient-to-r from-pink-500 to-orange-500">
       </div>
       <div className="p-[1px] mt-4 w-full max-w-sm bg-gradient-to-r from-pink-500 to-orange-500 rounded-full">
         <button
-          className="text-orange-600 bg-white w-full max-w-sm h-12 rounded-full font-semibold"
+          className="hover:text-pink-500 transition text-orange-600 bg-white w-full max-w-sm h-12 rounded-full font-semibold"
           onClick={() => router.push('/register')}
         >
 

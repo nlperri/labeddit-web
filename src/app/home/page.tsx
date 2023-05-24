@@ -1,24 +1,11 @@
 import { NewPostForm } from "@/components/NewPostForm";
+import { PostCard } from "@/components/PostCard";
 import { Posts } from "@/components/Posts";
-import { useFetchPosts } from "@/hooks/useFetchPosts";
-import { useGetPost } from "@/hooks/useGetPost";
+import { useGetPostsWithComments } from "@/hooks/usePostsWithComments";
 
 export default async function HomePage() {
-    const { fetchPosts } = useFetchPosts()
-    const { getPost } = useGetPost()
-    const response = await fetchPosts()
 
-    const posts = await Promise.all(response.map(async (post) => {
-        const postWithComment = await getPost(post.id)
-
-        const comments = postWithComment.comments
-
-        return {
-            ...post,
-            comments
-        }
-
-    }))
+    const { posts, fetchNextPage } = await useGetPostsWithComments()
 
     return (
         <main className="my-7 mt-8">
@@ -26,8 +13,7 @@ export default async function HomePage() {
                 <NewPostForm />
                 <div className=" h-[1px] mt-6 w-full max-w-md bg-gradient-to-r from-pink-500 to-orange-500">
                 </div>
-                <Posts
-                    posts={posts} />
+                <Posts posts={posts} />
             </div>
         </main>
     )

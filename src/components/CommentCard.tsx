@@ -40,14 +40,14 @@ export function CommentCard({ comment }: CommentCardProps) {
                 <div className="p-2 flex items-center justify-around w-24 rounded-full border h-7">
 
                     <ArrowUp
-                        className="cursor-pointer fill-pink-500"
+                        className="cursor-pointer fill-pink-500 hover:animate-bounce"
                         onClick={
                             () => likeDislikeComment({ id: comment.id, like: true })
                         }
                     />
                     <p className="text-grayBg-300 text-xs">{comment.likes}</p>
                     <ArrowDown
-                        className="cursor-pointer"
+                        className="cursor-pointer hover:animate-bounce"
                         onClick={
                             () => likeDislikeComment({ id: comment.id, like: false })
                         }

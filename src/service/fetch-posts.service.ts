@@ -3,10 +3,9 @@ import getCookies from './get-cookie.service'
 import { PostOutput } from '@/@types/fetch-posts.type'
 
 export class FetchPostsService {
-  postsUrl: string = '/posts'
-  async execute() {
+  async execute(page: number) {
     const token = await getCookies()
-    const response = await api.get<PostOutput[]>(this.postsUrl, {
+    const response = await api.get<PostOutput[]>(`/posts/page/${page}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

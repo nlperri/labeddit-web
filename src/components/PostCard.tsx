@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import ArrowUp from '../assets/arrow-up.svg'
 import ArrowDown from '../assets/arrow-down.svg'
 import CommentsImg from '../assets/comments.svg'
+import React, { createRef } from "react"
 
 interface PostCardProps {
     post: Post
@@ -40,14 +41,15 @@ export function PostCard({ post }: PostCardProps) {
                 <div className="p-2 flex items-center justify-around w-24 rounded-full border h-7">
 
                     <ArrowUp
-                        className="cursor-pointer"
+
+                        className="cursor-pointer fill-pink-500 hover:animate-bounce"
                         onClick={
                             () => likeDislikePost({ id: post.id, like: true })
                         }
                     />
                     <p className="text-grayBg-300 text-xs">{post.likes}</p>
                     <ArrowDown
-                        className="cursor-pointer"
+                        className="cursor-pointer hover:animate-bounce"
                         onClick={
                             () => likeDislikePost({ id: post.id, like: false })
                         }
@@ -56,7 +58,7 @@ export function PostCard({ post }: PostCardProps) {
                 <div
                     onClick={() => router.push(`/post/${post.id}`)}
                     className=" cursor-pointer rounded-full border h-7 py-2 px-3 flex items-center justify-around w-16">
-                    <CommentsImg />
+                    <CommentsImg className="hover:animate-bounce" />
                     <p className="text-grayBg-300 text-xs">{post.comments.length}</p>
                 </div>
             </div>

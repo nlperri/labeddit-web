@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import Loading from '../assets/loading.svg'
 
 export function RegisterForm() {
     const { emmitErrorToast, Toast } = useToast()
@@ -76,14 +77,28 @@ export function RegisterForm() {
                 />
                 <p>Eu concordo em receber emails sobre coisas legais no Labeddit</p>
             </div>
+            {isSubmitting ?
+             <button
 
-            <button
+             className="mt-4 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold flex justify-center items-center"
+             type='submit'
+             disabled
+         >
+              <Loading
 
-                className="mt-4 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold"
-                type='submit'
-            >
-                Cadastrar
-            </button>
+                className=" w-8 h-8 text-white animate-spin fill-orange-600"
+/>
+         </button>
+         :
+         <button
+
+         className="mt-4 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold"
+         type='submit'
+     >
+         Cadastrar
+     </button>
+            }
+           
             <Toast />
         </form>
     )
