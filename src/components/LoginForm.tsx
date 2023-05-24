@@ -66,6 +66,7 @@ export function LoginForm() {
                     type="email"
                     placeholder='E-mail'
                     required
+                    autoComplete="off"
                     {...register('email')}
 
                 />
@@ -74,29 +75,30 @@ export function LoginForm() {
                     type="password"
                     placeholder="Senha"
                     required
+                    autoComplete="off"
                     {...register('password')}
                 />
 
-                 {isSubmitting ? 
-                <button
-                    className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold transition hover:from-orange-500 hover:to-pink-500 flex justify-center items-center"
-                    type='submit'
-                    disabled
+                {isSubmitting ?
+                    <button
+                        className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold transition hover:from-orange-500 hover:to-pink-500 flex justify-center items-center"
+                        type='submit'
+                        disabled
                     >
-                   <Loading
+                        <Loading
 
-className=" w-8 h-8 text-white animate-spin fill-orange-600"
-/>
-                </button>
-                :
-                <button
-                    className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold transition hover:from-orange-500 hover:to-pink-500"
-                    type='submit'
+                            className=" w-8 h-8 text-white animate-spin fill-orange-600"
+                        />
+                    </button>
+                    :
+                    <button
+                        className="mt-14 w-full max-w-sm h-12 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold transition hover:from-orange-500 hover:to-pink-500"
+                        type='submit'
                     >
-                    Continuar
-                </button>
-}
-               
+                        Continuar
+                    </button>
+                }
+
             </form>
 
             <div className=" h-[1px] mt-4 w-full max-w-sm bg-gradient-to-r from-pink-500 to-orange-500">
@@ -105,7 +107,7 @@ className=" w-8 h-8 text-white animate-spin fill-orange-600"
                 <button
                     className="text-orange-600 bg-white w-full max-w-sm h-12 rounded-full font-semibold hover:text-pink-500 transition"
                     type='submit'
-                    >
+                >
                     <Link href="/register">
                         Crie uma conta!
                     </Link>
