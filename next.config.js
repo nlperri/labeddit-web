@@ -4,7 +4,7 @@ const nextConfig = {
     serverActions: true,
   },
   env: {
-    baseUrl: 'https://labeddit-r48n.onrender.com/',
+    baseUrl: 'http://localhost:3009',
   },
   webpack(config) {
     config.module.rules.push({

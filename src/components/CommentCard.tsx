@@ -1,15 +1,15 @@
 'use client'
-import { Comment } from "@/@types/get-post-type"
 import ArrowUp from '../assets/arrow-up.svg'
 import ArrowDown from '../assets/arrow-down.svg'
 import { useLikeDislike } from "@/hooks/useLikeDislike"
 import { useRouter } from "next/navigation"
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import { CommentsWihDetails } from "@/@types/fetch-posts.type"
 
 
 interface CommentCardProps {
-    comment: Comment
+    comment: CommentsWihDetails
 }
 
 export function CommentCard({ comment }: CommentCardProps) {
@@ -47,7 +47,7 @@ export function CommentCard({ comment }: CommentCardProps) {
                             () => likeDislikeComment({ id: comment.id, like: true })
                         }
                     />
-                    <p className="text-grayBg-300 text-xs">{comment.likes}</p>
+                    <p className="text-grayBg-300 text-xs">{comment.likes.length}</p>
                     <ArrowDown
                         className="cursor-pointer hover:animate-bounce"
                         onClick={
