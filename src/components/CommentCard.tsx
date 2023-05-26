@@ -52,7 +52,6 @@ export function CommentCard({ comment, userId }: CommentCardProps) {
             likeOrDislike({ id, like })
             router.refresh()
         } catch (error) {
-            console.log(error)
         }
     }
 
